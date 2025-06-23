@@ -26,7 +26,7 @@
 	<module name="vehicles" >
 		<param name="vehiclesFile" value="serengeti-park-mode-vehicle-types-v1.0.xml" />
 	</module>
-	<module name="transit" >
+	<module name="transit">
 		<param name="useTransit" value="false" />
 	</module>
 	<module name="planscalcroute" >
