@@ -69,7 +69,12 @@ public class CreateZooShuttle {
         scenario.getTransitSchedule().addStopFacility(toStopFacility);
 
         // create TransitRouteStop
-        TransitRouteStop fromStop = scheduleFactory.createTransitRouteStop(fromStopFacility, 0, 10);
+        // TransitRouteStop fromStop = scheduleFactory.createTransitRouteStop(fromStopFacility, 0, 10);
+        TransitRouteStop fromStop = scheduleFactory.createTransitRouteStopBuilder(fromStopFacility)
+                .arrivalOffset(0)
+                .departureOffset(10)
+                .awaitDepartureTime(true)
+                .build();
         TransitRouteStop toStop = scheduleFactory.createTransitRouteStop(toStopFacility, 3600, 3610);
 
         // create TransitRoute
@@ -101,7 +106,7 @@ public class CreateZooShuttle {
 
         Link link = networkFactory.createLink(Id.createLinkId(id), from, to);
         link.setAllowedModes(Set.of(TransportMode.pt));
-        link.setFreespeed(100);
+        link.setFreespeed(180);
         link.setCapacity(10000);
         return link;
     }
